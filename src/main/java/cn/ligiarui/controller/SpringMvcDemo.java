@@ -3,13 +3,11 @@ package cn.ligiarui.controller;
 
 import cn.ligiarui.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @SpringBootApplication
@@ -23,7 +21,6 @@ public class SpringMvcDemo {
 
     @RequestMapping(value = "/userName", method = RequestMethod.GET)
     public String findByUserName(HttpServletRequest request) {
-        //System.out.println(request.getParameterMap());
         System.out.println("controller findByUserName开始...");
         demoService.demoMethod();
         return "test3";
