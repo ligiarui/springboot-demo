@@ -6,11 +6,10 @@ import java.io.IOException;
 /**
  * @description:
  * @author: lijiarui
- * @create: 2018-09-29 16:43
+ * @create: 2018-09-29 18:23
  **/
 //@WebFilter(urlPatterns = "/*")
-public class TokenFilter implements Filter {
-
+public class LogFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -18,8 +17,7 @@ public class TokenFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        //System.out.println(JSON.toJSONString(servletRequest.getParameterMap()));
-        System.out.println("进token");
+        System.out.println("进log");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

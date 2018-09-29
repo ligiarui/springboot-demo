@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"cn.ligiarui"})
-@ServletComponentScan(basePackages = {"cn.ligiarui.filter"})
+//@ServletComponentScan(basePackages = {"cn.ligiarui.filter"})
 public class SpringbootDemoApplication {
 
 	public static void main(String[] args) {
