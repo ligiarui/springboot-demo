@@ -18,7 +18,6 @@ public class TokenFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        //System.out.println(JSON.toJSONString(servletRequest.getParameterMap()));
         System.out.println("进token");
         filterChain.doFilter(servletRequest, servletResponse);
     }
