@@ -20,12 +20,21 @@ import java.util.Map;
 @Slf4j
 public class CommonExceptionHandler {
 
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public Map<String,Object> handleException(Exception ex) {
+        Map<String,Object> result = new HashMap<>();
+        result.put("respCode", "1002");
+        result.put("respMsg", "common exception");
+        return result;
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     public Map<String,Object> handleBindException(MethodArgumentNotValidException ex) {
         FieldError fieldError = ex.getBindingResult().getFieldError();
         log.info("参数校验异常:{}({})", fieldError.getDefaultMessage(),fieldError.getField());
-        Map<String,Object> result = new HashMap<String,Object>();
+        Map<String,Object> result = new HashMap<>();
         result.put("respCode", "1001");
         result.put("respMsg", fieldError.getDefaultMessage());
         return result;
@@ -38,7 +47,7 @@ public class CommonExceptionHandler {
         //校验 除了 requestbody 注解方式的参数校验 对应的 bindingresult 为 BeanPropertyBindingResult
         FieldError fieldError = ex.getBindingResult().getFieldError();
         log.info("必填校验异常:{}({})", fieldError.getDefaultMessage(),fieldError.getField());
-        Map<String,Object> result = new HashMap<String,Object>();
+        Map<String,Object> result = new HashMap<>();
         result.put("respCode", "1002");
         result.put("respMsg", fieldError.getDefaultMessage());
         return result;
