@@ -3,6 +3,8 @@ package cn.ligiarui.controller;
 
 import cn.ligiarui.param.ValidatorDemo;
 import cn.ligiarui.service.DemoService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import javax.validation.Valid;
 @SpringBootApplication
 
 @RestController
+@Api(tags="测试API")
 public class SpringMvcDemo {
 
 
@@ -21,6 +24,7 @@ public class SpringMvcDemo {
     private DemoService demoService;
 
     @RequestMapping(value = "/userName", method = RequestMethod.GET)
+    @ApiOperation(value="用户查找")
     public String findByUserName(@Valid ValidatorDemo param) {
         System.out.println("controller开始...param:" +param.getName());
         demoService.demoMethod();
