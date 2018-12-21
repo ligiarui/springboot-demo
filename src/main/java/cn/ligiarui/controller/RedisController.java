@@ -20,20 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class RedisController {
 
     @Autowired
-    private StringRedisTemplate redisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("set/{key}/{value}")
     @ApiOperation(value="设置缓存")
     public String set(@PathVariable("key")String key, @PathVariable("value") String value) {
         //注意这里的 key不能为null spring 内部有检验
-        redisTemplate.opsForValue().set(key, value);
+        stringRedisTemplate.opsForValue().set(key, value);
         return key + "," + value;
     }
 
     @GetMapping("get/{key}")
     @ApiOperation(value="根据key获取缓存")
     public String get(@PathVariable("key") String key) {
-
-        return "key=" + key + ",value=" + redisTemplate.opsForValue().get(key);
+        return "key=" + key + ",value=" + stringRedisTemplate.opsForValue().get(key);
     }
+
 }
