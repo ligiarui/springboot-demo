@@ -16,7 +16,7 @@ public class taskDemo {
 
     @Scheduled(cron = "0/10 * * * * ?")
     public void fixedRateJob(){
-        System.out.println("哈哈");
+        //System.out.println("哈哈");
         //log.info(" {}","aaa");
     }
 

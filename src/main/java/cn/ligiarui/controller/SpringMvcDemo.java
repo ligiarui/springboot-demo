@@ -1,6 +1,7 @@
 package cn.ligiarui.controller;
 
 
+import cn.ligiarui.Annotation.Auth;
 import cn.ligiarui.param.ValidatorDemo;
 import cn.ligiarui.service.DemoService;
 import io.swagger.annotations.Api;
@@ -23,6 +24,7 @@ public class SpringMvcDemo {
     @Autowired
     private DemoService demoService;
 
+    @Auth
     @RequestMapping(value = "/userName", method = RequestMethod.GET)
     @ApiOperation(value="用户查找")
     public String findByUserName(@Valid ValidatorDemo param) {
